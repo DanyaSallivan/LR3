@@ -1,3 +1,4 @@
+
 """
 С клавиатуры вводится два числа K и N. Квадратная матрица А(N,N), состоящая из 4-х равных по размерам подматриц, B,C,D,E заполняется случайным образом целыми числами в интервале [-10,10]. Для тестирования использовать не случайное заполнение, а целенаправленное.
 
@@ -39,10 +40,17 @@ k = int(input("Введите число K: "))
 m = n//2
 n = m*2
 mtrxA = []
+fileName = "text.txt"
+nums = []
+with open(fileName, encoding="utf-8") as f:
+    for i, line in enumerate(f):
+        if i >= n*n:
+            break
+        nums.append(int(line.rstrip()))
 for i in range(n):
     row = []
     for j in range(n):
-        row.append(rnd(-10,10))
+        row.append(nums[i*n+j])
     mtrxA.append(row)
 
 b = []
