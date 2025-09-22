@@ -41,17 +41,13 @@ m = n//2
 n = m*2
 mtrxA = []
 fileName = "text.txt"
-nums = []
+arr = []
 with open(fileName, encoding="utf-8") as f:
-    for i, line in enumerate(f):
-        if i >= n*n:
-            break
-        nums.append(int(line.rstrip()))
-for i in range(n):
-    row = []
-    for j in range(n):
-        row.append(nums[i*n+j])
-    mtrxA.append(row)
+    for i in f:
+        arr.append([int(x) for x in i.split()])
+
+mtrxA = [x for x in arr if x != []]
+
 
 b = []
 c = []
